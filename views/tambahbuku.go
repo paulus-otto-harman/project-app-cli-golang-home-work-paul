@@ -23,6 +23,7 @@ func TambahBuku(rak models.Rak) {
 		isbn, _ := component.ToString(component.Input(map[string]interface{}{"label": "Isbn"}))
 
 		simpan(&rak, models.InitBuku(judul, penulis, isbn))
+		fmt.Println("Buku berhasil ditambahkan!")
 
 		menuItem, err := component.Input(map[string]interface{}{"type": "number", "label": "Tekan Enter untuk menambahkan lagi atau Masukkan [0] untuk Kembali Ke Menu Utama"})
 		switch {

@@ -14,12 +14,14 @@ func HapusBuku(rak models.Rak) {
 		isbn, _ := component.ToString(component.Input(map[string]interface{}{"label": "Isbn"}))
 		err := rak.RemoveBook(isbn)
 		if err != nil {
-			menuItem, _ := component.Input(map[string]interface{}{"type": "number", "label": fmt.Sprintf("%s\n\n%s", err, "Tekan Enter untuk menghapus yang lain atau Masukkan [0] untuk Kembali Ke Menu Utama")})
-			if menuItem == 0 {
+			menuItem, err := component.Input(component.Args(component.P("type", "number"), component.P("label", fmt.Sprintf("%s\n\n%s", err, "Tekan Enter untuk menghapus yang lain atau Masukkan [0] untuk Kembali Ke Menu Utama"))))
+			switch {
+			case err != nil:
+				continue
+			case menuItem == 0:
 				return
 			}
 		}
-
 	}
 
 }

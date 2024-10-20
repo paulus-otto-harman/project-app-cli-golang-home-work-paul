@@ -6,10 +6,6 @@ import (
 )
 
 func Home() {
-
-	var menuItem interface{}
-	var err error
-
 	for {
 		util.ClearScreen()
 		println("*** MENU UTAMA ***")
@@ -18,7 +14,7 @@ func Home() {
 		println("[3] Tampilkan Buku")
 		println("[4] Keluar dari Program")
 
-		menuItem, err = component.Input(map[string]interface{}{"type": "number", "label": "Masukkan Pilihan Anda :"})
+		menuItem, err := component.ToInt(component.Input(component.Args(component.P("type", "number"), component.P("label", "Masukkan Pilihan Anda :"))))
 		switch {
 		case err != nil:
 			continue

@@ -14,7 +14,7 @@ func P(key string, value interface{}) Param {
 }
 
 func Args(params ...Param) map[string]interface{} {
-	var parameters map[string]interface{}
+	var parameters = make(map[string]interface{})
 	for _, param := range params {
 		parameters[param.Key] = param.Value
 	}
@@ -24,6 +24,20 @@ func Args(params ...Param) map[string]interface{} {
 func ToString(data interface{}, err error) (string, error) {
 	// TODO : validasi
 	return fmt.Sprintf("%v", data), err
+}
+
+func ToInt(data interface{}, err error) (int, error) {
+	// TODO : validasi
+
+	if err != nil {
+		return 0, err
+	}
+
+	number, ok := data.(int)
+	if !ok {
+		return 0, err
+	}
+	return number, err
 }
 
 func Input(params ...map[string]interface{}) (interface{}, error) {

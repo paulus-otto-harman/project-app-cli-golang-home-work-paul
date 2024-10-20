@@ -2,9 +2,9 @@ package views
 
 import (
 	"fmt"
-	"homework/coms"
+	"homework/component"
 	"homework/models"
-	"homework/utils"
+	"homework/util"
 	"strings"
 )
 
@@ -13,7 +13,7 @@ func TampilkanBuku() {
 	const WidthPenulis = 60
 	const WidthIsbn = 30
 
-	utils.ClearScreen()
+	util.ClearScreen()
 
 	// header
 	fmt.Printf("%s%s%s%s%s%s%s\n", "┌─", strings.Repeat("─", WidthJudul), "┬─", strings.Repeat("─", WidthPenulis), "┬─", strings.Repeat("─", WidthIsbn), "┐")
@@ -30,5 +30,5 @@ func TampilkanBuku() {
 	fmt.Printf("%s%-*s%-*s%-*s%s\n", "│ ", WidthJudul, fmt.Sprintf("%s%d%s", "Total : ", len(models.DaftarBuku), " buku"), WidthPenulis+2, "", WidthIsbn+2, "", "│")
 	fmt.Printf("%s%s%s\n", "╘═", strings.Repeat("═", WidthJudul+2+WidthPenulis+2+WidthIsbn), "╛")
 
-	coms.Input(map[string]interface{}{"label": "Tekan Enter untuk kembali ke Menu Utama ..."})
+	component.Input(map[string]interface{}{"label": "Tekan Enter untuk kembali ke Menu Utama ..."})
 }

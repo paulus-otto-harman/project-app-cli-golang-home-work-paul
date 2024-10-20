@@ -2,16 +2,16 @@ package views
 
 import (
 	"fmt"
-	"homework/coms"
+	"homework/component"
 	"homework/models"
-	"homework/utils"
+	"homework/util"
 )
 
 func HapusBuku() {
-	utils.ClearScreen()
+	util.ClearScreen()
 	buku := models.Buku{}
 
 	fmt.Println("*** Hapus Buku ***")
-	isbn, _ := coms.Input(map[string]interface{}{"label": "Isbn"})
+	isbn, _ := component.Input(map[string]interface{}{"label": "Isbn"})
 	buku.Hapus(buku.CariIsbn(fmt.Sprintf("%v", isbn)))
 }

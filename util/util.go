@@ -1,6 +1,7 @@
-package utils
+package util
 
 import (
+	"homework/component"
 	"os"
 	"os/exec"
 	"runtime"
@@ -16,4 +17,8 @@ func ClearScreen() {
 		cmd.Stdout = os.Stdout
 		cmd.Run()
 	}
+}
+
+func Wait() {
+	component.Input()
 }

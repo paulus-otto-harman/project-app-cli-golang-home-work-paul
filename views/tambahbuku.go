@@ -18,9 +18,9 @@ func TambahBuku(rak models.Rak) {
 
 		fmt.Println("*** Tambah Buku ***")
 
-		judul, _ := component.ToString(component.Input(map[string]interface{}{"label": "Judul"}))
-		penulis, _ := component.ToString(component.Input(map[string]interface{}{"label": "Penulis"}))
-		isbn, _ := component.ToString(component.Input(map[string]interface{}{"label": "Isbn"}))
+		judul, _ := component.ToString(component.Input(map[string]interface{}{"label": fmt.Sprintf("%-15s :", "Judul")}))
+		penulis, _ := component.ToString(component.Input(map[string]interface{}{"label": fmt.Sprintf("%-15s :", "Penulis")}))
+		isbn, _ := component.ToString(component.Input(map[string]interface{}{"label": fmt.Sprintf("%-15s :", "ISBN")}))
 
 		simpan(&rak, models.InitBuku(judul, penulis, isbn))
 		fmt.Println("Buku berhasil ditambahkan!")

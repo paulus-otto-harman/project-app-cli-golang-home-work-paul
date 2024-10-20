@@ -30,7 +30,7 @@ func ToInt(data interface{}, err error) (int, error) {
 	// TODO : validasi
 
 	if err != nil {
-		return 0, err
+		panic("Sistem mendeteksi error. Aplikasi dihentikan.")
 	}
 
 	number, ok := data.(int)

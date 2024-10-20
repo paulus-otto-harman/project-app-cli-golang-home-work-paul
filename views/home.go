@@ -2,7 +2,6 @@ package views
 
 import (
 	"homework/component"
-	"homework/controllers"
 	"homework/util"
 )
 
@@ -24,13 +23,13 @@ func Home() {
 		case err != nil:
 			continue
 		case menuItem == 4:
-			break
+			return
 		case menuItem == 3:
-			controllers.TampilkanBuku()
+			TampilkanBuku()
 		case menuItem == 2:
-			controllers.HapusBuku()
+			HapusBuku()
 		case menuItem == 1:
-			controllers.TambahBuku()
+			TambahBuku()
 		}
 	}
 }

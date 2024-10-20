@@ -1,10 +1,7 @@
 package main
 
-import (
-	"homework/views"
-)
+import "homework/views"
 
 func main() {
 	views.Home()
-
 }

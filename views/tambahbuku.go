@@ -25,7 +25,6 @@ func TambahBuku(rak models.Rak) {
 		simpan(&rak, models.InitBuku(judul, penulis, isbn))
 
 		menuItem, err := component.Input(map[string]interface{}{"type": "number", "label": "Tekan Enter untuk menambahkan lagi atau Masukkan [0] untuk Kembali Ke Menu Utama"})
-		fmt.Println(menuItem, err)
 		switch {
 		case err != nil:
 			continue

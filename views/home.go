@@ -3,13 +3,15 @@ package views
 import (
 	"fmt"
 	"homework/component"
+	"homework/models"
 	"homework/util"
 )
 
 func Home() {
+	rak := models.Rak{}
 	for {
 		util.ClearScreen()
-		fmt.Println("*** MENU UTAMA ***")
+		fmt.Println("*** MANAJEMEN PERPUSTAKAAN ***")
 		fmt.Println("[1] Tambah Buku")
 		fmt.Println("[2] Hapus Buku")
 		fmt.Println("[3] Tampilkan Buku")
@@ -22,11 +24,12 @@ func Home() {
 		case menuItem == 4:
 			return
 		case menuItem == 3:
-			TampilkanBuku()
+			//TampilkanBuku(rak)
+			rak.ShowBooks()
 		case menuItem == 2:
-			HapusBuku()
+			HapusBuku(rak)
 		case menuItem == 1:
-			TambahBuku()
+			TambahBuku(rak)
 		}
 	}
 }

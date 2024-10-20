@@ -7,9 +7,12 @@ import (
 	"homework/util"
 )
 
-func TambahBuku() {
+func simpan(rak models.Perpustakaan, buku models.Buku) {
+	rak.AddBook(&buku)
+}
 
-loop:
+func TambahBuku(rak models.Rak) {
+
 	for {
 		util.ClearScreen()
 
@@ -19,7 +22,7 @@ loop:
 		penulis, _ := component.ToString(component.Input(map[string]interface{}{"label": "Penulis"}))
 		isbn, _ := component.ToString(component.Input(map[string]interface{}{"label": "Isbn"}))
 
-		models.InitBuku(judul, penulis, isbn)
+		simpan(&rak, models.InitBuku(judul, penulis, isbn))
 
 		menuItem, err := component.Input(map[string]interface{}{"type": "number", "label": "Tekan Enter untuk menambahkan lagi atau Masukkan [0] untuk Kembali Ke Menu Utama"})
 		fmt.Println(menuItem, err)
@@ -27,7 +30,7 @@ loop:
 		case err != nil:
 			continue
 		case menuItem == 0:
-			break loop
+			return
 		}
 
 	}

@@ -7,11 +7,9 @@ import (
 	"homework/util"
 )
 
-func HapusBuku() {
+func HapusBuku(rak models.Rak) {
 	util.ClearScreen()
-	buku := models.Buku{}
-
 	fmt.Println("*** Hapus Buku ***")
-	isbn, _ := component.Input(map[string]interface{}{"label": "Isbn"})
-	buku.Hapus(buku.CariIsbn(fmt.Sprintf("%v", isbn)))
+	isbn, _ := component.ToString(component.Input(map[string]interface{}{"label": "Isbn"}))
+	rak.RemoveBook(isbn)
 }
